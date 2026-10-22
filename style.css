@@ -1,0 +1,439 @@
+
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(
+        90deg,
+        #244d80 0%,
+        #0f234f 50%,
+        #244d80 100%
+    );
+    font-family: Arial, sans-serif;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+    width: 100%;
+    margin: 20px auto 0;
+    padding: 25px 20px;
+    border-radius: 30px;
+    background: radial-gradient(
+        circle,
+        #fafcff 0%,
+        #c2d0f2 50%,
+        #e4e8f7 100%
+    );
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #0a0a17;
+    font-size: clamp(32px, 5vw, 70px);
+    font-family: Impact, Haettenschweiler,
+        "Arial Narrow Bold", sans-serif;
+    text-align: center;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+header h2 {
+    margin: 10px 0 0;
+    padding-bottom: 5px;
+    color: #000;
+    font-size: clamp(18px, 2.5vw, 30px);
+    font-family: Cambria, Cochin, Georgia,
+        "Times New Roman", serif;
+}
+
+/* ===== LOGOS ===== */
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+}
+
+.logos img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===== LINHA DECORATIVA ===== */
+hr {
+    height: 8px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+        92deg,
+        #3065e3 0%,
+        #2a2628 50%,
+        #e83535 100%
+    );
+}
+
+/* ===== MENU DE OPÇÕES ===== */
+.opcoes {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 80px auto 40px;
+    padding: 20px;
+}
+
+.opcoes .card-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    min-height: 140px;
+    padding: 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 16px;
+    background: linear-gradient(
+        135deg,
+        #fff 0%,
+        #f0f3f8 100%
+    );
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.opcoes .card-btn h2 {
+    margin: 0;
+    color: #070c40;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.opcoes .card-btn:hover {
+    border-color: #f1426b;
+    background: linear-gradient(
+        135deg,
+        #fff 0%,
+        #fff5f7 100%
+    );
+    box-shadow: 0 14px 28px rgba(172, 26, 55, 0.15);
+    transform: translateY(-4px);
+}
+
+.opcoes .card-btn:hover h2 {
+    color: #f1426b;
+}
+
+/* ===== FUNDO DO JOGO ===== */
+.bdmddiario {
+    background: linear-gradient(
+        135deg,
+        #170404 0%,
+        #010a1a 100%
+    );
+}
+
+.mddiario {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 35px 20px;
+    border-radius: 22px;
+    background-image: url("FundoDLE.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+/* ===== ÁREA PRINCIPAL DO JOGO ===== */
+.jogo {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.jogo h2 {
+    margin-top: 0;
+    color: #f7f7f7;
+    font-size: clamp(28px, 4vw, 40px);
+    font-family: Impact, Haettenschweiler,
+        "Arial Narrow Bold", sans-serif;
+}
+
+.jogo p {
+    color: #fff;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    overflow-wrap: anywhere;
+}
+
+/* ===== BUSCA DE ALUNOS ===== */
+.busca {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 25px auto;
+}
+
+#busca-aluno {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #244d80;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 16px;
+}
+
+#busca-aluno:focus {
+    outline: 3px solid rgba(70, 130, 230, 0.35);
+    border-color: #3065e3;
+}
+
+#btn-palpite {
+    margin-top: 12px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #2d4ab3;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#btn-palpite:hover {
+    background: #db2e50;
+}
+
+#btn-palpite:disabled {
+    background: #777;
+    cursor: not-allowed;
+}
+
+/* ===== SUGESTÕES ===== */
+#sugestoes {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.opcao-aluno {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    border: 1px solid #d5dbea;
+    border-radius: 8px;
+    background: #fff;
+    color: #101979;
+    text-align: left;
+    cursor: pointer;
+}
+
+.opcao-aluno:hover {
+    background: #e8edff;
+}
+
+.foto-sugestao {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ===== MENSAGEM E RESULTADO ===== */
+#mensagem {
+    display: block;
+    width: 100%;
+    margin: 15px auto;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+#resultado img {
+    width: 180px;
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* ===== CABEÇALHO E LINHAS DAS TENTATIVAS ===== */
+
+/*
+   12 colunas:
+   Nome + Gênero + Escola + Curso + Idade + Time
+   + Interesse amoroso + Música + Inteligência
+   + Talento + Nível PCD + Habilidade esportiva
+*/
+
+.cabecalho-atributos,
+.linha-tentativa {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(100px, 1fr));
+    gap: 6px;
+    width: 100%;
+    min-width: 1250px;
+}
+
+.cabecalho-atributos {
+    margin-top: 25px;
+    border-bottom: 3px solid #10243a;
+    border-radius: 8px 8px 0 0;
+    background: #ed456c;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cabecalho-atributos div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 12px 6px;
+    overflow-wrap: anywhere;
+}
+
+#tentativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.linha-tentativa {
+    align-items: stretch;
+}
+
+.celula {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 65px;
+    padding: 10px 6px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.celula.nome {
+    background: #3a76be;
+}
+
+.celula.correto {
+    background: #2cd06d;
+    color: #102719;
+}
+
+.celula.parcial {
+    background: #e1b332;
+    color: #171717;
+}
+
+.celula.errado {
+    background: #c52a34;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        margin-top: 10px;
+        padding: 20px 12px;
+        border-radius: 18px;
+    }
+
+    .logos {
+        gap: 10px;
+        padding: 12px 5px;
+    }
+
+    .logos img {
+        width: 65px;
+    }
+
+    .opcoes {
+        gap: 15px;
+        margin-top: 35px;
+        padding: 10px;
+    }
+
+    .opcoes .card-btn {
+        width: 100%;
+        max-width: 320px;
+        min-height: 110px;
+    }
+
+    .mddiario {
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .jogo {
+        padding: 15px 10px;
+    }
+
+    .jogo p {
+        font-size: 16px;
+    }
+
+    #btn-palpite {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cabecalho-atributos,
+    .linha-tentativa {
+        grid-template-columns: repeat(12, minmax(90px, 1fr));
+        min-width: 1150px;
+    }
+
+    .celula {
+        min-height: 58px;
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+
+    .cabecalho-atributos div {
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+}

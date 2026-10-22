@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLE-FORTETEC</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="alunos.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="bdmddiario">
+  <header>
+    <div class="logos">
+    <img src="forteclogo.png" height="200px" width="250px">
+    <h1> DLE DA <span style="color: rgb(16, 25, 122);">FORTEC</span> E<span style="color: rgb(172, 26, 55);"> ETEC</span></h1>
+        <img src="eteclogo.png" height="200px" width="250px">
+    </div>
+    <h2>DESCUBRA O ALUNO DO DIA</h2>
+    <hr>
+    <br>
+  </header>  
+<br><br>
+<main class="mddiario">
+
+    <section class="jogo">
+        <h2>QUEM É O ALUNO DO DIA?</h2>
+        <p>Digita o nome de alguem</p>
+        <p id="mensagem">Boa sorte!</p>
+
+        <div class="busca">
+            <input
+                type="text"
+                id="busca-aluno"
+                placeholder="EZCREVA."
+                autocomplete="off"
+            >
+
+            <div id="sugestoes"></div>
+
+            <button id="btn-palpite" type="button">
+                CHUTAR
+            </button>
+        </div>
+<div class="cabecalho-atributos">
+    <div>Nome</div>
+    <div>Gênero</div>
+    <div>Escola</div>
+    <div>Curso</div>
+    <div>Idade</div>
+    <div>Time</div>
+    <div>IA</div>
+    <div>Inteligencia</div>
+    <div>Talento</div>
+    <div>NivelPCD</div>
+    <div>habEsporte</div>
+</div>
+        <div id="tentativas"></div>
+
+        <div id="resultado" hidden>
+            <h2 id="nome-aluno"></h2>
+            <img id="foto-aluno" src="" alt="Foto do aluno revelado">
+        </div>
+ 
+    </section>
+
+</main>
