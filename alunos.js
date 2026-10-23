@@ -1489,7 +1489,7 @@ const alunos = [
         nome: "Sajouz",
         genero: "Homem",
         escolas: ["ETEC"],
-        curso: "1",
+        curso: "1DSEM2",
         idade: 16,
         time: "Santos",
         ia: ["Gabrielli", "Manu Soares"],
