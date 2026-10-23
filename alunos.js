@@ -264,7 +264,7 @@ const alunos = [
         curso: "TMK1",
         idade: 16,
         time: "Corinthians",
-        ia: ["Leandro"],
+        ia: ["Leandro", "peterson"],
         musica: "Sertanejo",
         inteligencia: "6",
         talento: "Volei",
@@ -281,7 +281,7 @@ const alunos = [
         curso: "TIM1",
         idade: 16,
         time: "Santos",
-        ia: ["Andrei", "Garbes", "Nonato", "Eduardo", "André"],
+        ia: ["Andrei", "Garbes", "Nonato", "Eduardo", "André", "peterson"],
         musica: "K-Pop",
         inteligencia: "8",
         talento: "The sims porn",
@@ -360,7 +360,7 @@ const alunos = [
     
     {
         id: 24,
-        nome: "Camila",
+        nome: "Camila Morangoni",
         genero: "Mulher",
         escolas: ["Ex-Fortec"],
         curso: "Odontologia",
@@ -372,7 +372,7 @@ const alunos = [
         talento: "nenhum",
         nivelPCD: "8",
         habEsporte: "1",
-        foto: "camilaa.jpg"
+        foto: "camilaam.jpg"
     },
     
     {
