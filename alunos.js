@@ -1404,7 +1404,7 @@ const alunos = [
         nome: "Michael",
         genero: "Homem",
         escolas: ["ETEC"],
-        curso: "1DSEM@",
+        curso: "1DSEM2",
         idade: 16,
         time: "viado",
         ia: ["Camila"],
@@ -1434,7 +1434,7 @@ const alunos = [
     },
                 
     {
-        id: 85,
+        id: 98,
         nome: "Castro",
         genero: "Homem",
         escolas: ["ETEC"],
@@ -1575,7 +1575,7 @@ const alunos = [
         nome: "Heitor",
         genero: "Homem",
         escolas: ["ETEC"],
-        curso: "1DSEM2!",
+        curso: "1DSEM2",
         idade: 16,
         time: "Corinthians",
         ia: ["todos"],
