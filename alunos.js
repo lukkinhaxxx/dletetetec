@@ -1592,7 +1592,7 @@ const alunos = [
         nome: "Marcelo",
         genero: "Homem",
         escolas: ["Fortec"],
-        curso: "TMC1!",
+        curso: "TMC1",
         idade: 16,
         time: "Corinthians",
         ia: ["lucas"],
@@ -1602,5 +1602,56 @@ const alunos = [
         nivelPCD: "12",
         habEsporte: "3",
         foto: "marceloo.jpg"
+    },
+    
+        {
+        id: 95,
+        nome: "Isa Muniz",
+        genero: "Mulher",
+        escolas: ["Fortec"],
+        curso: "EM1!",
+        idade: 16,
+        time: "IDntKnow",
+        ia: ["Bernardo Dentelho"],
+        musica: "IDntKnow",
+        inteligencia: "5",
+        talento: "IDntKnow",
+        nivelPCD: "6",
+        habEsporte: "3",
+        foto: "munizz.jpg"
+        },
+    
+        {
+        id: 96,
+        nome: "Isa Wieser",
+        genero: "Mulher",
+        escolas: ["Ex-Fortec"],
+        curso: "EM1!",
+        idade: 16,
+        time: "Fluminense de piaui",
+        ia: ["Caio"],
+        musica: "IDntKnow",
+        inteligencia: "5",
+        talento: "Nenhum",
+        nivelPCD: "4",
+        habEsporte: "3",
+        foto: "wieserr.jpg"
+    },
+    
+        {
+        id: 97,
+        nome: "Agatha",
+        genero: "Mulher",
+        escolas: ["Ex-Fortec"],
+        curso: "EM1",
+        idade: 16,
+        time: "Corinthians",
+        ia: ["Rafael"],
+        musica: "IDntKnow",
+        inteligencia: "3",
+        talento: "Irritar",
+        nivelPCD: "7",
+        habEsporte: "1",
+        foto: "agathaa.jpg"
     }
 ];
