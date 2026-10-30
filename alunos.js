@@ -1653,5 +1653,22 @@ const alunos = [
         nivelPCD: "7",
         habEsporte: "1",
         foto: "agathaa.jpg"
+    },
+        
+        {
+        id: 98,
+        nome: "Matheus Marins",
+        genero: "Homem",
+        escolas: ["Ex-Fortec"],
+        curso: "BioM2",
+        idade: 19,
+        time: "Flamengo",
+        ia: ["Leonardo Jardim"],
+        musica: "NuMetal",
+        inteligencia: "10",
+        talento: "Desenhar",
+        nivelPCD: "3",
+        habEsporte: "4",
+        foto: "tatoo.jpg"
     }
 ];
