@@ -66,7 +66,6 @@ header h2 {
     object-fit: contain;
 }
 
-/* ===== LINHA DECORATIVA ===== */
 hr {
     height: 8px;
     margin: 20px 0;
@@ -80,7 +79,6 @@ hr {
     );
 }
 
-/* ===== MENU DE OPÇÕES ===== */
 .opcoes {
     display: flex;
     justify-content: center;
@@ -106,7 +104,7 @@ hr {
         #fff 0%,
         #f0f3f8 100%
     );
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 20px rgba(66, 45, 185, 0.378);
     text-decoration: none;
     transition: 0.3s ease;
 }
@@ -127,7 +125,7 @@ hr {
         #fff 0%,
         #fff5f7 100%
     );
-    box-shadow: 0 14px 28px rgba(172, 26, 55, 0.15);
+    box-shadow: 0 14px 28px rgba(217, 30, 68, 0.404);
     transform: translateY(-4px);
 }
 
@@ -135,7 +133,6 @@ hr {
     color: #f1426b;
 }
 
-/* ===== FUNDO DO JOGO ===== */
 .bdmddiario {
     background: linear-gradient(
         135deg,
@@ -156,7 +153,6 @@ hr {
     background-position: center top;
 }
 
-/* ===== ÁREA PRINCIPAL DO JOGO ===== */
 .jogo {
     width: 100%;
     max-width: 1400px;
@@ -182,7 +178,6 @@ hr {
     overflow-wrap: anywhere;
 }
 
-/* ===== BUSCA DE ALUNOS ===== */
 .busca {
     position: relative;
     width: 100%;
@@ -227,7 +222,6 @@ hr {
     cursor: not-allowed;
 }
 
-/* ===== SUGESTÕES ===== */
 #sugestoes {
     position: absolute;
     z-index: 10;
@@ -267,7 +261,6 @@ hr {
     object-fit: cover;
 }
 
-/* ===== MENSAGEM E RESULTADO ===== */
 #mensagem {
     display: block;
     width: 100%;
@@ -285,15 +278,6 @@ hr {
     border-radius: 12px;
     object-fit: cover;
 }
-
-/* ===== CABEÇALHO E LINHAS DAS TENTATIVAS ===== */
-
-/*
-   12 colunas:
-   Nome + Gênero + Escola + Curso + Idade + Time
-   + Interesse amoroso + Música + Inteligência
-   + Talento + Nível PCD + Habilidade esportiva
-*/
 
 .cabecalho-atributos,
 .linha-tentativa {
@@ -369,7 +353,6 @@ hr {
     background: #c52a34;
 }
 
-/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -436,4 +419,28 @@ hr {
         padding: 8px 4px;
         font-size: 13px;
     }
+}
+
+.sofortec hr{
+     height: 8px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+        92deg,
+        #3065e3 0%,
+        #2a2628 50%,
+        #3830cd 100%
+    );
+}
+.mddiariofortec {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 35px 20px;
+    border-radius: 22px;
+    background-image: url("FundofortecDLE.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
 }
