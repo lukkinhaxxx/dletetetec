@@ -1,19 +1,66 @@
-
 const campoBusca = document.getElementById("busca-aluno");
 const sugestoes = document.getElementById("sugestoes");
 const botaoPalpite = document.getElementById("btn-palpite");
 const mensagem = document.getElementById("mensagem");
 const tentativas = document.getElementById("tentativas");
 
+const hoje = new Date();
+const sementeDoDia = hoje.getFullYear() * 10000 + (hoje.getMonth() + 1) * 100 + hoje.getDate();
+
+function numeroAleatorioPorSemente(semente) {
+    let x = Math.sin(semente) * 10000;
+    return x - Math.floor(x);
+}
+
+const valorAleatorio = numeroAleatorioPorSemente(sementeDoDia);
+const indiceDoDia = Math.floor(valorAleatorio * alunos.length);
+const alunoSecreto = alunos[indiceDoDia];
+
+console.log("Aluno secreto do dia selecionado com sucesso!");
+
 let alunoSelecionado = null;
 let historicoPalpites = [];
 
-const alunoSecreto =
-    alunos[Math.floor(Math.random() * alunos.length)];
+function inicializarJogoDoDia() {
+    const dataSalva = localStorage.getItem("dle_data_jogo");
+    
+    if (dataSalva !== String(sementeDoDia)) {
+        localStorage.setItem("dle_data_jogo", sementeDoDia);
+        localStorage.removeItem("dle_historico");
+        localStorage.removeItem("dle_venceu");
+        historicoPalpites = [];
+    } else {
+        const historicoSalvo = localStorage.getItem("dle_historico");
+        if (historicoSalvo) {
+            const copiaHistorico = JSON.parse(historicoSalvo);
+            copiaHistorico.forEach(aluno => {
+                historicoPalpites.push(aluno);
+                executarLogicaVisualPalpite(aluno);
+            });
+        }
+        
+        if (localStorage.getItem("dle_venceu") === "true") {
+            finalizarJogoComVitoria();
+        }
+    }
+}
 
-console.log("Aluno secreto:", alunoSecreto.nome);
+function finalizarJogoComVitoria() {
+    mensagem.textContent = "Boa, acertou! Dhr!";
 
-// Busca e sugestões de alunos
+    const resultado = document.getElementById("resultado");
+    const nomeAluno = document.getElementById("nome-aluno");
+    const fotoAluno = document.getElementById("foto-aluno");
+
+    if (resultado && nomeAluno && fotoAluno) {
+        nomeAluno.textContent = alunoSecreto.nome;
+        fotoAluno.src = alunoSecreto.foto;
+        resultado.hidden = false;
+    }
+
+    botaoPalpite.disabled = true;
+    campoBusca.disabled = true;
+}
 campoBusca.addEventListener("input", () => {
     const pesquisa = campoBusca.value.trim().toLowerCase();
 
@@ -56,12 +103,8 @@ campoBusca.addEventListener("input", () => {
     });
 });
 
-// Compara valores simples e arrays
 function comparar(valorPalpite, valorSecreto) {
-    if (
-        Array.isArray(valorPalpite) &&
-        Array.isArray(valorSecreto)
-    ) {
+    if (Array.isArray(valorPalpite) && Array.isArray(valorSecreto)) {
         const iguais = valorPalpite.filter(valor =>
             valorSecreto.includes(valor)
         );
@@ -76,85 +119,38 @@ function comparar(valorPalpite, valorSecreto) {
         return iguais.length > 0 ? "parcial" : "errado";
     }
 
-    return valorPalpite === valorSecreto
-        ? "correto"
-        : "errado";
+    return valorPalpite === valorSecreto ? "correto" : "errado";
 }
 
-// Compara atributos que podem ter vários valores
 function compararEscolas(valoresPalpite, valoresSecretos) {
     return comparar(valoresPalpite, valoresSecretos);
 }
 
-// Cria uma célula para cada atributo
 function criarCelula(texto, resultado) {
     const celula = document.createElement("div");
-
     celula.className = `celula ${resultado}`;
     celula.textContent = texto;
-
     return celula;
 }
 
-// Registra e compara um palpite
-function registrarPalpite() {
-    if (!alunoSelecionado) {
-        mensagem.textContent =
-            "Selecione um aluno nas sugestões primeiro!";
-        return;
-    }
-
-    if (
-        historicoPalpites.some(
-            aluno => aluno.id === alunoSelecionado.id
-        )
-    ) {
-        mensagem.textContent =
-            "Você já tentou esse aluno!";
-        return;
-    }
-
-    const palpite = alunoSelecionado;
-    historicoPalpites.push(palpite);
-
+function executarLogicaVisualPalpite(palpite) {
     const linha = document.createElement("div");
     linha.className = "linha-tentativa";
 
     linha.appendChild(criarCelula(palpite.nome, "nome"));
 
-    // Atributos comparados
     const atributos = [
         ["Gênero", palpite.genero, alunoSecreto.genero],
         ["Escola", palpite.escolas, alunoSecreto.escolas],
         ["Curso", palpite.curso, alunoSecreto.curso],
         ["Idade", palpite.idade, alunoSecreto.idade],
         ["Time", palpite.time, alunoSecreto.time],
-        [
-            "Interesse amoroso",
-            palpite.ia,
-            alunoSecreto.ia
-        ],
+        ["Interesse amoroso", palpite.ia, alunoSecreto.ia],
         ["Música", palpite.musica, alunoSecreto.musica],
-        [
-            "Inteligência",
-            palpite.inteligencia,
-            alunoSecreto.inteligencia
-        ],
-        [
-            "Talento",
-            palpite.talento,
-            alunoSecreto.talento
-        ],
-        [
-            "Nível PCD",
-            palpite.nivelPCD,
-            alunoSecreto.nivelPCD
-        ],
-        [
-            "Habilidade esportiva",
-            palpite.habEsporte,
-            alunoSecreto.habEsporte
-        ]
+        ["Inteligência", palpite.inteligencia, alunoSecreto.inteligencia],
+        ["Talento", palpite.talento, alunoSecreto.talento],
+        ["Nível PCD", palpite.nivelPCD, alunoSecreto.nivelPCD],
+        ["Habilidade esportiva", palpite.habEsporte, alunoSecreto.habEsporte]
     ];
 
     atributos.forEach(([nome, valorPalpite, valorSecreto]) => {
@@ -164,7 +160,6 @@ function registrarPalpite() {
             ? valorPalpite.join(" / ")
             : String(valorPalpite ?? "Não informado");
 
-        // Indica se a idade é maior ou menor que a secreta
         if (nome === "Idade" && resultado === "errado") {
             texto += valorPalpite < valorSecreto ? " ↑" : " ↓";
         }
@@ -173,31 +168,38 @@ function registrarPalpite() {
     });
 
     tentativas.prepend(linha);
+}
 
-    // Verifica se o aluno foi encontrado
+function registrarPalpite() {
+    if (!alunoSelecionado) {
+        mensagem.textContent = "Selecione um aluno nas sugestões primeiro!";
+        return;
+    }
+
+    if (historicoPalpites.some(aluno => aluno.id === alunoSelecionado.id)) {
+        mensagem.textContent = "Você já tentou esse aluno!";
+        return;
+    }
+
+    const palpite = alunoSelecionado;
+    historicoPalpites.push(palpite);
+    
+    localStorage.setItem("dle_historico", JSON.stringify(historicoPalpites));
+
+    executarLogicaVisualPalpite(palpite);
+
     if (palpite.id === alunoSecreto.id) {
-        mensagem.textContent = "Boa, acertou! Dhr!";
-
-        const resultado = document.getElementById("resultado");
-        const nomeAluno = document.getElementById("nome-aluno");
-        const fotoAluno = document.getElementById("foto-aluno");
-
-        if (resultado && nomeAluno && fotoAluno) {
-            nomeAluno.textContent = alunoSecreto.nome;
-            fotoAluno.src = alunoSecreto.foto;
-            resultado.hidden = false;
-        }
-
-        botaoPalpite.disabled = true;
-        campoBusca.disabled = true;
+        localStorage.setItem("dle_venceu", "true");
+        finalizarJogoComVitoria();
     } else {
         mensagem.textContent = "Esse não é o aluno secreto!";
     }
 
-    // Limpa a busca após o palpite
     campoBusca.value = "";
     sugestoes.innerHTML = "";
     alunoSelecionado = null;
 }
 
 botaoPalpite.addEventListener("click", registrarPalpite);
+
+inicializarJogoDoDia();
