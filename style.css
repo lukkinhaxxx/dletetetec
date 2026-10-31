@@ -449,34 +449,18 @@ hr {
     -webkit-overflow-scrolling: touch;
 }
 
-cabecalho-atributos,
-linha-tentativa {
-    width: 850px;
-    min-width: 850px;
-}
 
-    #tentativas {
+@media (max-width: 600px) {
+    .tabela-scroll {
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
-    .cabecalho-atributos {
-        overflow: visible;
-    }
-
-    .jogo {
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-    .busca {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    #busca-aluno {
-        width: 100%;
-        max-width: 100%;
+    .cabecalho-atributos,
+    .linha-tentativa {
+        width: 850px;
+        min-width: 850px;
     }
 }
 
