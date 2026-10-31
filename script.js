@@ -160,7 +160,7 @@ function executarLogicaVisualPalpite(palpite) {
             ? valorPalpite.join(" / ")
             : String(valorPalpite ?? "Não informado");
 
-        const atributosNumericos = [
+   const atributosNumericos = [
     "Idade",
     "Inteligência",
     "Nível PCD",
@@ -175,11 +175,11 @@ if (atributosNumericos.includes(nome) && resultado === "errado") {
         Number.isFinite(palpiteNumerico) &&
         Number.isFinite(secretoNumerico)
     ) {
-            texto += valorPalpite < valorSecreto ? " ↑" : " ↓";
-        }
+        texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
+    }
 }
-        linha.appendChild(criarCelula(texto, resultado));
-    });
+linha.appendChild(criarCelula(texto, resultado));
+        
 
     tentativas.prepend(linha);
 }
