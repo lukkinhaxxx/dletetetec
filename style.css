@@ -286,17 +286,15 @@ hr {
 }
 
 .cabecalho-atributos {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(100px, 1fr));
-    gap: 6px;
-    box-sizing: border-box;
     margin-top: 25px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    background-color: #ed456c;
     border-bottom: 3px solid #10243a;
+    border-radius: 8px 8px 0 0;
+    background: #ed456c;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
 }
+
 
 .cabecalho-atributos div {
     display: flex;
