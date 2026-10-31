@@ -1,13 +1,12 @@
-
 const campoBusca = document.getElementById("busca-aluno");
 const sugestoes = document.getElementById("sugestoes");
 const botaoPalpite = document.getElementById("btn-palpite");
 const mensagem = document.getElementById("mensagem");
 const tentativas = document.getElementById("tentativas");
 
-const alunoSecreto = alunos[
-    Math.floor(Math.random() * alunos.length)
-];
+// Sorteia um aluno aleatório a cada carregamento da página
+const indiceAleatorio = Math.floor(Math.random() * alunos.length);
+const alunoSecreto = alunos[indiceAleatorio];
 
 console.log("Aluno secreto selecionado com sucesso!");
 
@@ -123,6 +122,13 @@ function executarLogicaVisualPalpite(palpite) {
         ["Habilidade esportiva", palpite.habEsporte, alunoSecreto.habEsporte]
     ];
 
+    const atributosNumericos = [
+        "Idade",
+        "Inteligência",
+        "Nível PCD",
+        "Habilidade esportiva"
+    ];
+
     atributos.forEach(([nome, valorPalpite, valorSecreto]) => {
         const resultado = comparar(valorPalpite, valorSecreto);
 
@@ -130,26 +136,20 @@ function executarLogicaVisualPalpite(palpite) {
             ? valorPalpite.join(" / ")
             : String(valorPalpite ?? "Não informado");
 
-       const atributosNumericos = [
-    "Idade",
-    "Inteligência",
-    "Nível PCD",
-    "Habilidade esportiva"
-];
+        if (atributosNumericos.includes(nome) && resultado === "errado") {
+            const palpiteNumerico = Number(valorPalpite);
+            const secretoNumerico = Number(valorSecreto);
 
-if (atributosNumericos.includes(nome) && resultado === "errado") {
-    const palpiteNumerico = Number(valorPalpite);
-    const secretoNumerico = Number(valorSecreto);
-
-    if (
-        Number.isFinite(palpiteNumerico) &&
-        Number.isFinite(secretoNumerico)
-    ) {
-        texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
-    }
-}
-linha.appendChild(criarCelula(texto, resultado));
+            if (
+                Number.isFinite(palpiteNumerico) &&
+                Number.isFinite(secretoNumerico)
+            ) {
+                texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
+            }
+        }
         
+        linha.appendChild(criarCelula(texto, resultado));
+    });
 
     tentativas.prepend(linha);
 }
@@ -182,4 +182,3 @@ function registrarPalpite() {
 }
 
 botaoPalpite.addEventListener("click", registrarPalpite);
-        
