@@ -1418,7 +1418,7 @@ const alunos = [
                 
     {
         id: 85,
-        nome: "Cariani",
+        nome: "Vinícius Carano",
         genero: "Homem",
         escolas: ["ETEC"],
         curso: "1DSEM2",
