@@ -444,3 +444,27 @@ hr {
     background-size: cover;
     background-position: center top;
 }
+
+.soetec hr{
+     height: 8px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(
+        92deg,
+        #e33030 0%,
+        #2a2628 50%,
+        #cd3030 100%
+    );
+}
+.mddiarioetec {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 35px 20px;
+    border-radius: 22px;
+    background-image: url("FundoetecDLE.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
