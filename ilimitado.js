@@ -4,15 +4,24 @@ const botaoPalpite = document.getElementById("btn-palpite");
 const mensagem = document.getElementById("mensagem");
 const tentativas = document.getElementById("tentativas");
 
-// Sorteia um aluno aleatório a cada carregamento da página
-const indiceAleatorio = Math.floor(Math.random() * alunos.length);
-const alunoSecreto = alunos[indiceAleatorio];
+// ---------- Aluno secreto (aleatório a cada carregamento, sem trava diária) ----------
+const alunoSecreto = alunos[Math.floor(Math.random() * alunos.length)];
 
 console.log("Aluno secreto selecionado com sucesso!");
 
+// ---------- Estado ----------
 let alunoSelecionado = null;
 let historicoPalpites = [];
 
+// Atributos que mostram seta ↑ / ↓ quando errados
+const atributosNumericos = [
+    "Idade",
+    "Inteligência",
+    "Nível PCD",
+    "Habilidade esportiva"
+];
+
+// ---------- Vitória ----------
 function finalizarJogoComVitoria() {
     mensagem.textContent = "Boa, acertou! Dhr!";
 
@@ -30,6 +39,7 @@ function finalizarJogoComVitoria() {
     campoBusca.disabled = true;
 }
 
+// ---------- Busca / sugestões ----------
 campoBusca.addEventListener("input", () => {
     const pesquisa = campoBusca.value.trim().toLowerCase();
 
@@ -72,6 +82,7 @@ campoBusca.addEventListener("input", () => {
     });
 });
 
+// ---------- Comparação ----------
 function comparar(valorPalpite, valorSecreto) {
     if (Array.isArray(valorPalpite) && Array.isArray(valorSecreto)) {
         const iguais = valorPalpite.filter(valor =>
@@ -91,10 +102,6 @@ function comparar(valorPalpite, valorSecreto) {
     return valorPalpite === valorSecreto ? "correto" : "errado";
 }
 
-function compararEscolas(valoresPalpite, valoresSecretos) {
-    return comparar(valoresPalpite, valoresSecretos);
-}
-
 function criarCelula(texto, resultado) {
     const celula = document.createElement("div");
     celula.className = `celula ${resultado}`;
@@ -102,6 +109,7 @@ function criarCelula(texto, resultado) {
     return celula;
 }
 
+// ---------- Linha visual do palpite ----------
 function executarLogicaVisualPalpite(palpite) {
     const linha = document.createElement("div");
     linha.className = "linha-tentativa";
@@ -122,13 +130,6 @@ function executarLogicaVisualPalpite(palpite) {
         ["Habilidade esportiva", palpite.habEsporte, alunoSecreto.habEsporte]
     ];
 
-    const atributosNumericos = [
-        "Idade",
-        "Inteligência",
-        "Nível PCD",
-        "Habilidade esportiva"
-    ];
-
     atributos.forEach(([nome, valorPalpite, valorSecreto]) => {
         const resultado = comparar(valorPalpite, valorSecreto);
 
@@ -147,13 +148,14 @@ function executarLogicaVisualPalpite(palpite) {
                 texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
             }
         }
-        
+
         linha.appendChild(criarCelula(texto, resultado));
     });
 
     tentativas.prepend(linha);
 }
 
+// ---------- Registrar palpite ----------
 function registrarPalpite() {
     if (!alunoSelecionado) {
         mensagem.textContent = "Selecione um aluno nas sugestões primeiro!";
