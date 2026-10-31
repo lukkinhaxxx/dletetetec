@@ -168,9 +168,16 @@ function executarLogicaVisualPalpite(palpite) {
 ];
 
 if (atributosNumericos.includes(nome) && resultado === "errado") {
+    const palpiteNumerico = Number(valorPalpite);
+    const secretoNumerico = Number(valorSecreto);
+
+    if (
+        Number.isFinite(palpiteNumerico) &&
+        Number.isFinite(secretoNumerico)
+    ) {
             texto += valorPalpite < valorSecreto ? " ↑" : " ↓";
         }
-
+}
         linha.appendChild(criarCelula(texto, resultado));
     });
 
