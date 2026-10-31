@@ -1,5 +1,4 @@
 
-/* ===== CONFIGURAÇÕES GERAIS ===== */
 * {
     box-sizing: border-box;
 }
@@ -16,7 +15,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* ===== CABEÇALHO ===== */
 header {
     width: 100%;
     margin: 20px auto 0;
@@ -50,7 +48,6 @@ header h2 {
         "Times New Roman", serif;
 }
 
-/* ===== LOGOS ===== */
 .logos {
     display: flex;
     justify-content: center;
@@ -446,11 +443,17 @@ hr {
 }
 
 @media (max-width: 600px) {
-    .cabecalho-atributos,
-    .linha-tentativa {
-        width: max-content;
-        min-width: 850px;
-    }
+    tabela-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+cabecalho-atributos,
+linha-tentativa {
+    width: 850px;
+    min-width: 850px;
+}
 
     #tentativas {
         overflow-x: auto;
@@ -499,4 +502,3 @@ hr {
         padding: 0 10px 10px;
     }
 }
-
