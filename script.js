@@ -163,7 +163,7 @@ function executarLogicaVisualPalpite(palpite) {
         const atributosNumericos = [
     "Idade",
     "Inteligência",
-    "Nivel PCD",
+    "Nível PCD",
     "Habilidade esportiva"
 ];
 
