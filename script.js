@@ -161,10 +161,10 @@ function executarLogicaVisualPalpite(palpite) {
             : String(valorPalpite ?? "Não informado");
 
         const atributosNumericos = [
-    "idade",
-    "inteligência",
-    "nível PCD",
-    "habEsporte"
+    "Idade",
+    "Inteligência",
+    "Nivel PCD",
+    "Habilidade esportiva"
 ];
 
 if (atributosNumericos.includes(nome) && resultado === "errado") {
