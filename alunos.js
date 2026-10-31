@@ -1447,7 +1447,7 @@ const alunos = [
         talento: ["pixel art", "ser gostoso"],
         nivelPCD: "4",
         habEsporte: "8",
-        foto: "Caiosj.jpg"
+        foto: "castroo.jpg"
     },
                 
     {
@@ -1464,7 +1464,7 @@ const alunos = [
         talento: "fazer programa",
         nivelPCD: "10",
         habEsporte: "7",
-        foto: "Caiosj.jpg"
+        foto: "enzott.jpg"
     },
                 
     {
@@ -1584,7 +1584,7 @@ const alunos = [
         talento: "jogar",
         nivelPCD: "7",
         habEsporte: "9",
-        foto: "Caiosj.jpg"
+        foto: "heitorr.jpg"
     },
     
         {
