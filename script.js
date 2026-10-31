@@ -160,7 +160,14 @@ function executarLogicaVisualPalpite(palpite) {
             ? valorPalpite.join(" / ")
             : String(valorPalpite ?? "Não informado");
 
-        if (nome === "Idade" && resultado === "errado") {
+        const atributosNumericos = [
+    "idade",
+    "inteligência",
+    "nível PCD",
+    "habEsporte"
+];
+
+if (atributosNumericos.includes(nome) && resultado === "errado") {
             texto += valorPalpite < valorSecreto ? " ↑" : " ↓";
         }
 
