@@ -161,12 +161,19 @@ function executarLogicaVisualPalpite(palpite) {
         "Habilidade esportiva"
     ];
 
-    atributos.forEach(([nome, valorPalpite, valorSecreto]) => {
+        atributos.forEach(([nome, valorPalpite, valorSecreto]) => {
         const resultado = comparar(valorPalpite, valorSecreto);
 
         let texto = Array.isArray(valorPalpite)
             ? valorPalpite.join(" / ")
             : String(valorPalpite ?? "Não informado");
+
+        const atributosNumericos = [
+            "Idade",
+            "Inteligência",
+            "Nível PCD",
+            "Habilidade esportiva"
+        ];
 
         if (atributosNumericos.includes(nome) && resultado === "errado") {
             const palpiteNumerico = Number(valorPalpite);
@@ -179,7 +186,7 @@ function executarLogicaVisualPalpite(palpite) {
                 texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
             }
         }
-        
+
         linha.appendChild(criarCelula(texto, resultado));
     });
 
