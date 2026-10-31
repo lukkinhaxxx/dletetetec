@@ -289,8 +289,6 @@ hr {
     display: grid;
     grid-template-columns: repeat(8, minmax(100px, 1fr));
     gap: 6px;
-    width: 850px;
-    min-width: 850px;
     box-sizing: border-box;
     margin-top: 25px;
     text-align: center;
