@@ -61,6 +61,7 @@ function finalizarJogoComVitoria() {
     botaoPalpite.disabled = true;
     campoBusca.disabled = true;
 }
+
 campoBusca.addEventListener("input", () => {
     const pesquisa = campoBusca.value.trim().toLowerCase();
 
@@ -153,6 +154,13 @@ function executarLogicaVisualPalpite(palpite) {
         ["Habilidade esportiva", palpite.habEsporte, alunoSecreto.habEsporte]
     ];
 
+    const atributosNumericos = [
+        "Idade",
+        "Inteligência",
+        "Nível PCD",
+        "Habilidade esportiva"
+    ];
+
     atributos.forEach(([nome, valorPalpite, valorSecreto]) => {
         const resultado = comparar(valorPalpite, valorSecreto);
 
@@ -160,26 +168,20 @@ function executarLogicaVisualPalpite(palpite) {
             ? valorPalpite.join(" / ")
             : String(valorPalpite ?? "Não informado");
 
-   const atributosNumericos = [
-    "Idade",
-    "Inteligência",
-    "Nível PCD",
-    "Habilidade esportiva"
-];
+        if (atributosNumericos.includes(nome) && resultado === "errado") {
+            const palpiteNumerico = Number(valorPalpite);
+            const secretoNumerico = Number(valorSecreto);
 
-if (atributosNumericos.includes(nome) && resultado === "errado") {
-    const palpiteNumerico = Number(valorPalpite);
-    const secretoNumerico = Number(valorSecreto);
-
-    if (
-        Number.isFinite(palpiteNumerico) &&
-        Number.isFinite(secretoNumerico)
-    ) {
-        texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
-    }
-}
-linha.appendChild(criarCelula(texto, resultado));
+            if (
+                Number.isFinite(palpiteNumerico) &&
+                Number.isFinite(secretoNumerico)
+            ) {
+                texto += palpiteNumerico < secretoNumerico ? " ↑" : " ↓";
+            }
+        }
         
+        linha.appendChild(criarCelula(texto, resultado));
+    });
 
     tentativas.prepend(linha);
 }
@@ -198,7 +200,7 @@ function registrarPalpite() {
     const palpite = alunoSelecionado;
     historicoPalpites.push(palpite);
     
-    localStorage.setItem("dle_historico", JSON.stringify(historicoPalpites));
+    localStorage.setItem("dle_histórico", JSON.stringify(historicoPalpites));
 
     executarLogicaVisualPalpite(palpite);
 
