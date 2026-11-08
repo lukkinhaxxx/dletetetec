@@ -1686,7 +1686,7 @@ const alunos = [
         talento: "gemea do mal",
         nivelPCD: "7",
         habEsporte: "1",
-        foto: "brunadobem.jpg"
+        foto: "beadomal.jpg"
     },
 
     {
