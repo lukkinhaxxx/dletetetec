@@ -583,23 +583,6 @@ const alunos = [
     },
     
     {
-        id: 41,
-        nome: "Maithe",
-        genero: "Mulher",
-        escolas: ["Fortec"],
-        curso: "TCE1",
-        idade: 16,
-        time: "Corinthians",
-        ia: ["Gabriel Santana", "João"],
-        musica: "IDntKnow",
-        inteligencia: "5",
-        talento: "ter pego o jõao",
-        nivelPCD: "8",
-        habEsporte: "2",
-        foto: "Maithee.jpg"
-    },
-    
-    {
         id: 42,
         nome: "Luiza Moreira",
         genero: "Mulher",
