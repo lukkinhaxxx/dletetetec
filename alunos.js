@@ -1358,10 +1358,10 @@ const alunos = [
         time: "São Paulo",
         ia: ["Muniz"],
         musica: "IDntKnow",
-        inteligencia: "",
-        talento: "",
-        nivelPCD: "",
-        habEsporte: "",
+        inteligencia: "8",
+        talento: "altura",
+        nivelPCD: "7",
+        habEsporte: "6",
         foto: "dentelhoo.jpg"
     },
                 
@@ -1654,9 +1654,43 @@ const alunos = [
         habEsporte: "1",
         foto: "agathaa.jpg"
     },
+
+    {
+        id: 98,
+        nome: "Bruna",
+        genero: "Mulher",
+        escolas: ["Ex-Fortec"],
+        curso: "EM1",
+        idade: 16,
+        time: "Palmeiras",
+        ia: ["João Boffo"],
+        musica: "IDntKnow",
+        inteligencia: "5",
+        talento: "gemea do bem",
+        nivelPCD: "6",
+        habEsporte: "1",
+        foto: "brunadobem.jpg"
+    },
+
+    {
+        id: 99,
+        nome: "Beatriz",
+        genero: "Mulher",
+        escolas: ["Ex-Fortec"],
+        curso: "EM1",
+        idade: 16,
+        time: "Palmeiras",
+        ia: ["Igor Oliveira"],
+        musica: "IDntKnow",
+        inteligencia: "4",
+        talento: "gemea do mal",
+        nivelPCD: "7",
+        habEsporte: "1",
+        foto: "brunadobem.jpg"
+    },
         
         {
-        id: 98,
+        id: 100,
         nome: "Matheus Marins",
         genero: "Homem",
         escolas: ["Ex-Fortec"],
@@ -1671,4 +1705,5 @@ const alunos = [
         habEsporte: "4",
         foto: "tatoo.jpg"
     }
+    
 ];
