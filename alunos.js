@@ -1688,9 +1688,26 @@ const alunos = [
         habEsporte: "1",
         foto: "brunadobem.jpg"
     },
+
+    {
+        id: 100,
+        nome: "Maithe",
+        genero: "Mulher",
+        escolas: ["Fortec"],
+        curso: "TCE1",
+        idade: 16,
+        time: "Corinthians",
+        ia: ["Santana", "Joáo Boffo"],
+        musica: "IDntKnow",
+        inteligencia: "4",
+        talento: "mentir",
+        nivelPCD: "8",
+        habEsporte: "1",
+        foto: "maithe.jpg"
+    },
         
         {
-        id: 100,
+        id: 101,
         nome: "Matheus Marins",
         genero: "Homem",
         escolas: ["Ex-Fortec"],
